@@ -1,0 +1,19 @@
+version: '3.4'
+
+services:
+  api:
+    image: ${DOCKER_REGISTRY-}api
+    build:
+      context: .
+      dockerfile: Api/Dockerfile
+    depends_on:
+      - db
+  db:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=prbPessoa
+    ports:
+      - "3306:3306"
+    volumes: 
+      - e:\mysqldata:/var/lib/mysql

@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PrbPessoaWebApi.App\PrbPessoaWebApi.App.csproj" />
+    <ProjectReference Include="..\PrbPessoaWebApi.Domain.Services\PrbPessoaWebApi.Domain.Services.csproj" />
+    <ProjectReference Include="..\PrbPessoaWebApi.Repository\PrbPessoaWebApi.Repository.csproj" />
+  </ItemGroup>
+
+</Project>

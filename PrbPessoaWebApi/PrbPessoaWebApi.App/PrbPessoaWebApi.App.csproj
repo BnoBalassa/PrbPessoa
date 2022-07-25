@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PrbPessoaWebApi.App.ViewModel\PrbPessoaWebApi.App.ViewModel.csproj" />
+    <ProjectReference Include="..\PrbPessoaWebApi.Domain.Core\PrbPessoaWebApi.Domain.Core.csproj" />
+    <ProjectReference Include="..\PrbPessoaWebApi.Infrastruture.CrossCutting.Adapter\PrbPessoaWebApi.Infrastruture.CrossCutting.Adapter.csproj" />
+  </ItemGroup>
+
+</Project>
