@@ -27,7 +27,19 @@ namespace PrbPessoaWebApi.Controllers
             {
                 return BadRequest(e.Message);
             }
-
+        }
+        [HttpPost]
+        public ActionResult Cadastrar(PessoaViewModel pessoa )
+        {
+            try
+            {
+                _apPessoaService.Adicionar(pessoa);
+                return Ok();
+            }
+            catch(Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
     }
 }

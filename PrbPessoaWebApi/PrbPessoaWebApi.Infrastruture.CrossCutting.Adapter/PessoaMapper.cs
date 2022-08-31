@@ -10,7 +10,6 @@ namespace PrbPessoaWebApi.Infrastruture.CrossCutting.Adapter
     {
         private readonly IMapper _mapper;
 
-
         public IEnumerable<PessoaViewModel> ListViewModelToPessoa(IEnumerable<Pessoa> pessoa)
         {
             return _mapper.Map<IEnumerable<PessoaViewModel>>(pessoa);
@@ -23,7 +22,15 @@ namespace PrbPessoaWebApi.Infrastruture.CrossCutting.Adapter
 
         public Pessoa PessoaToViewModel(PessoaViewModel pessoaViewModel)
         {
-            return _mapper.Map<Pessoa>(pessoaViewModel);
+            Pessoa pessoa = new Pessoa
+            {
+                Celular = pessoaViewModel.Celular,
+                CreatedDate = pessoaViewModel.CreatedDate,
+                Email = pessoaViewModel.Email,
+                Nome = pessoaViewModel.Nome,
+
+            };
+            return pessoa;
         }
     }
 }
