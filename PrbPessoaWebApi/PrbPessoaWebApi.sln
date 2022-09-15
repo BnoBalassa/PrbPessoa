@@ -33,6 +33,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrbPessoaWebApi.Infrastrutu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrbPessoaWebApi.Infrastruture.CrossCutting.IOC", "PrbPessoaWebApi.Infrastruture.CrossCutting.IOC\PrbPessoaWebApi.Infrastruture.CrossCutting.IOC.csproj", "{FDBF8AD3-1597-4B7C-86A2-5AEAD49727C9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrbPessoaTest", "PrbPessoaTest\PrbPessoaTest.csproj", "{35F7A03F-BD05-4BCB-B970-D97D1247F5AF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -79,6 +81,10 @@ Global
 		{FDBF8AD3-1597-4B7C-86A2-5AEAD49727C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FDBF8AD3-1597-4B7C-86A2-5AEAD49727C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FDBF8AD3-1597-4B7C-86A2-5AEAD49727C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35F7A03F-BD05-4BCB-B970-D97D1247F5AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35F7A03F-BD05-4BCB-B970-D97D1247F5AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35F7A03F-BD05-4BCB-B970-D97D1247F5AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35F7A03F-BD05-4BCB-B970-D97D1247F5AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

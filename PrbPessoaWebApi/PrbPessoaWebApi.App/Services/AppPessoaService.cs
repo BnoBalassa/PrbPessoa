@@ -26,7 +26,8 @@ namespace PrbPessoaWebApi.App.Services
         {
             var pessoa = _serviceCliente.BuscarPorNomeEmail(nome, email);
 
-            return _mapper.PessoaViewToPessoa(pessoa);
+            PessoaViewModel pessoaViewModel = new PessoaViewModel { Nome = pessoa.Nome, Email = pessoa.Email };
+            return pessoaViewModel;
         }
 
         public IEnumerable<PessoaViewModel> BuscarTodos()

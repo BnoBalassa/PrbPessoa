@@ -29,7 +29,7 @@ namespace PrbPessoaWebApi.Controllers
             }
         }
         [HttpPost]
-        public ActionResult Cadastrar(PessoaViewModel pessoa )
+        public ActionResult Cadastrar([FromBody]PessoaViewModel pessoa )
         {
             try
             {
