@@ -4,7 +4,7 @@
     {
         void Adicionar(TEntity obj);
         TEntity BuscarPorNomeEmail(string nome, string email);
-        IEnumerable<TEntity> BuscarTodos();
+        List<TEntity> BuscarTodos();
         void Update(TEntity obj);
         void Delete(string email);
         void Dispose();

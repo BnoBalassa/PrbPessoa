@@ -2,6 +2,8 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using PrbPessoaWebApi.Infrastructure.Data;
+using PrbPessoaWebApi.Infrastruture.CrossCutting.Adapter;
+using PrbPessoaWebApi.Infrastruture.CrossCutting.Adapter.Mapping;
 using PrbPessoaWebApi.Infrastruture.CrossCutting.IOC;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,10 +11,8 @@ builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())
     .ConfigureContainer<ContainerBuilder>(builder =>
     {
         builder.RegisterModule(new ModuleIOC());
+
     });
-
-
-
 
 // Add services to the container.
 builder.Services.AddControllers();
@@ -20,7 +20,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddHealthChecks();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAuthorization();
-
+builder.Services.AddAutoMapper(typeof(ServiceExtension));
 
 var serverVersion = new MySqlServerVersion(new Version(8, 0, 29));
     var config = builder.Configuration.GetConnectionString("ConnectionStrings");
@@ -53,5 +53,6 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
 
 app.Run();

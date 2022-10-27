@@ -5,8 +5,9 @@ using PrbPessoaWebApi.Repository.Repository;
 using PrbPessoaWebApi.Domain.Core.Interfaces.Repository;
 using PrbPessoaWebApi.App.Services;
 using PrbPessoaWebApi.App.Interfaces;
-using PrbPessoaWebApi.Infrastruture.CrossCutting.Adapter;
 using PrbPessoaWebApi.Infrastruture.CrossCutting.Adapter.Interfaces;
+using PrbPessoaWebApi.Infrastruture.CrossCutting.Adapter.Mapping;
+using PrbPessoaWebApi.Infrastruture.CrossCutting.Adapter;
 
 namespace PrbPessoaWebApi.Infrastruture.CrossCutting.IOC
 {
@@ -30,7 +31,7 @@ namespace PrbPessoaWebApi.Infrastruture.CrossCutting.IOC
             #endregion
 
             #region IOC Mapper
-            builder.RegisterType<PessoaMapper>().As<IPessoaMapper>();
+            builder.RegisterType<ServiceExtension>();
 
             #endregion
 
