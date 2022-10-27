@@ -1,3 +1,4 @@
+using AutoMapper;
 using NSubstitute;
 using PrbPessoaTest.RepositoryTest;
 using PrbPessoaWebApi.App.Services;
@@ -11,15 +12,13 @@ namespace PrbPessoaTest.Services
     
     public class AppPessoaServiceTest
     {
-        private IPessoaService _service;
-        private IPessoaMapper _mapper;
-        private AppPessoaService _appService;
+        readonly IPessoaService _service;
+        readonly IMapper _mapper;
+        readonly AppPessoaService _appService;
         public AppPessoaServiceTest()
         {
             _service = Substitute.For<IPessoaService>();
-            _mapper = Substitute.For<IPessoaMapper>();
             _appService = new AppPessoaService(_service, _mapper);
-            
         }      
 
         [Fact]

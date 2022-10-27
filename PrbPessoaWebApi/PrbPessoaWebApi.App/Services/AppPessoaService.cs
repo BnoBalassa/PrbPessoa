@@ -1,16 +1,18 @@
-﻿using PrbPessoaWebApi.App.Interfaces;
+﻿using AutoMapper;
+using PrbPessoaWebApi.App.Interfaces;
 using PrbPessoaWebApi.App.ViewModel.ViewModels;
 using PrbPessoaWebApi.Domain.Core.Services;
-using PrbPessoaWebApi.Infrastruture.CrossCutting.Adapter.Interfaces;
+using PrbPessoaWebApi.Domain.Models;
+using System.Reflection.Metadata.Ecma335;
 
 namespace PrbPessoaWebApi.App.Services
 {
     public class AppPessoaService : IAppPessoaService
     {
         private readonly IPessoaService _serviceCliente;
-        private readonly IPessoaMapper _mapper;
+        private readonly IMapper _mapper;
 
-        public AppPessoaService(IPessoaService serviceCliente, IPessoaMapper mapper)
+        public AppPessoaService(IPessoaService serviceCliente, IMapper mapper)
         {
             _serviceCliente = serviceCliente;
             _mapper = mapper;
@@ -18,7 +20,7 @@ namespace PrbPessoaWebApi.App.Services
 
         public void Adicionar(PessoaViewModel obj)
         {
-            var pessoa = _mapper.PessoaToViewModel(obj);
+            var pessoa = _mapper.Map<Pessoa>(obj);
             _serviceCliente.Adicionar(pessoa);
         }
 
@@ -26,16 +28,17 @@ namespace PrbPessoaWebApi.App.Services
         {
             var pessoa = _serviceCliente.BuscarPorNomeEmail(nome, email);
 
-            PessoaViewModel pessoaViewModel = new PessoaViewModel { Nome = pessoa.Nome, Email = pessoa.Email };
-            return pessoaViewModel;
+            PessoaViewModel model = _mapper.Map<PessoaViewModel>(pessoa);
+            return model;
         }
 
         public IEnumerable<PessoaViewModel> BuscarTodos()
         {
             var pessoa = _serviceCliente.BuscarTodos();
-            if(string.IsNullOrEmpty(pessoa.ToString()))
+            if (!string.IsNullOrEmpty(pessoa.ToString()))
             {
-                return _mapper.ListViewModelToPessoa(pessoa);
+                var model = _mapper.Map<IEnumerable<PessoaViewModel>>(pessoa);
+                return model;
             }
             return null;
         }
@@ -52,7 +55,7 @@ namespace PrbPessoaWebApi.App.Services
 
         public void Update(PessoaViewModel obj)
         {
-            var pessoa = _mapper.PessoaToViewModel(obj);
+            var pessoa = _mapper.Map<Pessoa>(obj);
             _serviceCliente.Update(pessoa);
         }
     }

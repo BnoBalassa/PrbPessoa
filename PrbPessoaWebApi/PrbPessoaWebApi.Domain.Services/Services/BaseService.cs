@@ -21,7 +21,7 @@ namespace PrbPessoaWebApi.Domain.Services.Services
         {
             return _repo.BuscarPorNomeEmail(nome, email);
         }
-        public virtual IEnumerable<TEntity> BuscarTodos()
+        public virtual List<TEntity> BuscarTodos()
         {
             return _repo.BuscarTodos();
         }

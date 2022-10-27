@@ -38,7 +38,7 @@ namespace PrbPessoaWebApi.Repository.Repository
             }
         }
 
-        public IEnumerable<TEntity> BuscarTodos()
+        public List<TEntity> BuscarTodos()
         {
             return _Context.Set<TEntity>().ToList();
         }

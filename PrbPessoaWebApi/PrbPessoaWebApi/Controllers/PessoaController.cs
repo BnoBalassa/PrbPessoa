@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using PrbPessoaWebApi.App.Interfaces;
 using PrbPessoaWebApi.App.ViewModel.ViewModels;
+using PrbPessoaWebApi.Domain.Models;
 
 namespace PrbPessoaWebApi.Controllers
 {
@@ -19,24 +20,22 @@ namespace PrbPessoaWebApi.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<PessoaViewModel>> Buscar()
         {
-            try
-            {
-                return Ok(_apPessoaService.BuscarTodos());
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.Message);
-            }
+            var pessoas = _apPessoaService.BuscarTodos();
+            if (pessoas != null)
+                return Ok(pessoas);
+
+            return BadRequest("Nenhum cliente cadastrado");
         }
+
         [HttpPost]
-        public ActionResult Cadastrar([FromBody]PessoaViewModel pessoa )
+        public ActionResult Cadastrar([FromBody] PessoaViewModel pessoa)
         {
             try
             {
                 _apPessoaService.Adicionar(pessoa);
                 return Ok();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return BadRequest(e.Message);
             }
