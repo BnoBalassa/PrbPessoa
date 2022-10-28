@@ -12,7 +12,7 @@ namespace PrbPessoaWebApi.App.Interfaces
         void Adicionar(PessoaViewModel obj);
         PessoaViewModel BuscarPorNomeEmail(string nome, string email);
         IEnumerable<PessoaViewModel> BuscarTodos();
-        void Update(PessoaViewModel obj);
+        void Update(AtualizarPessoaViewModel obj);
         void delete(string email);
         void Dispose();
     }

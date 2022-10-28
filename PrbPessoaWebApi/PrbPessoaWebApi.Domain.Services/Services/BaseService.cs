@@ -1,5 +1,6 @@
 ﻿using PrbPessoaWebApi.Domain.Core.Interfaces.Repository;
 using PrbPessoaWebApi.Domain.Core.Services;
+using PrbPessoaWebApi.Domain.Models;
 using System;
 using System.Collections.Generic;
 namespace PrbPessoaWebApi.Domain.Services.Services
@@ -17,9 +18,10 @@ namespace PrbPessoaWebApi.Domain.Services.Services
         {
             _repo.Adicionar(obj);
         }
-        public virtual TEntity BuscarPorNomeEmail(string nome, string email)
-        {
-            return _repo.BuscarPorNomeEmail(nome, email);
+        public virtual Pessoa BuscarPorNomeEmail(string nome, string email)
+        { 
+            var pessoa = _repo.BuscarPorNomeEmail(nome, email);
+            return pessoa;
         }
         public virtual List<TEntity> BuscarTodos()
         {

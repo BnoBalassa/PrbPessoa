@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PrbPessoaWebApi.Domain.Core.Interfaces.Repository;
+using PrbPessoaWebApi.Domain.Models;
 using PrbPessoaWebApi.Infrastructure.Data;
 
 namespace PrbPessoaWebApi.Repository.Repository
@@ -26,11 +27,11 @@ namespace PrbPessoaWebApi.Repository.Repository
             }
         }
 
-        public virtual TEntity BuscarPorNomeEmail(string nome, string email)
+        public virtual Pessoa BuscarPorNomeEmail(string nome, string email)
         {
             try
             {
-                return _Context.Set<TEntity>().FirstOrDefault(e => e.Equals(nome) && e.Equals(email));
+                return _Context.pessoa.FirstOrDefault(e => e.Email == email && e.Nome == nome);
             }
             catch (Exception e)
             {

@@ -40,5 +40,18 @@ namespace PrbPessoaWebApi.Controllers
                 return BadRequest(e.Message);
             }
         }
+
+        [HttpPut]
+        public void AtualizarCadastro([FromBody] AtualizarPessoaViewModel atualizarPessoa)
+        {
+            try
+            {
+                _apPessoaService.Update(atualizarPessoa);
+
+            }catch(Exception e)
+            {
+                throw new Exception("Nenhum cliente encontrado");
+            }
+        }
     }
 }

@@ -53,10 +53,15 @@ namespace PrbPessoaWebApi.App.Services
             _serviceCliente.Dispose();
         }
 
-        public void Update(PessoaViewModel obj)
+        public void Update(AtualizarPessoaViewModel obj)
         {
-            var pessoa = _mapper.Map<Pessoa>(obj);
-            _serviceCliente.Update(pessoa);
+            var pessoa = _serviceCliente.BuscarPorNomeEmail(obj.Nome, obj.Email);
+            if(pessoa != null)
+            {
+                pessoa.Celular = obj.Celular;
+                _serviceCliente.Update(pessoa);
+            }
+          
         }
     }
 }
